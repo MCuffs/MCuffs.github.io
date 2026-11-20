@@ -374,6 +374,13 @@ figure {
 .pf-row--dated {
   grid-template-columns: 120px minmax(0, 1fr) auto;
 }
+.pf-row--wide {
+  grid-template-columns: minmax(0, 1fr) 100px auto;
+}
+.pf-row__none {
+  color: var(--ink-4);
+  font-size: 13px;
+}
 .pf-row__when {
   color: var(--ink-4);
   font-size: 14px;
@@ -513,6 +520,7 @@ figure {
   }
   .pf-row,
   .pf-row--dated,
+  .pf-row--wide,
   .pf-career__item {
     grid-template-columns: minmax(0, 1fr);
     gap: 4px;
