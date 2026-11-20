@@ -1,0 +1,167 @@
+.sh .ss-stage {
+  --gutter: 32px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--ss-well);
+}
+
+/* 하단 블리드: 위·좌우에 여백, 아래로 잘림. 잘리는 곳은 캡션 막대뿐 */
+.sh-win {
+  position: absolute;
+  top: var(--gutter);
+  left: 48px;
+  width: 504px;
+  height: 420px;
+  box-shadow: var(--ss-shadow-hero);
+}
+
+.sh-body {
+  height: 100%;
+  padding: 16px;
+  background: var(--ss-surface);
+}
+
+.sh-ask {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sh-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.sh-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.sh-card {
+  margin: 0;
+}
+
+.sh-card > .sh-slide {
+  grid-area: 1 / 1;
+}
+
+.sh-card {
+  display: grid;
+}
+
+.sh-slide {
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sh-slide--sk {
+  background: var(--ss-canvas);
+  box-shadow: inset 0 0 0 1px var(--ss-line-faint);
+  justify-content: center;
+}
+
+.sh-slide--real {
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateY(6px);
+  will-change: transform;
+}
+
+.sh-card[data-ready] .sh-slide--sk {
+  opacity: 0;
+}
+
+.sh-card[data-ready] .sh-slide--real {
+  opacity: 1;
+  transform: none;
+}
+
+.sh-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+}
+
+.sh-title {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+
+.sh-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sh-page {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.sh-slide--cream {
+  background: #f3e6cf;
+  color: #4a2e16;
+}
+.sh-slide--green {
+  background: #dce8d2;
+  color: #22422c;
+}
+.sh-slide--orange {
+  background: #ff6200;
+  color: #fff;
+}
+.sh-slide--orange .sh-foot-bar {
+  background: rgb(255 255 255 / 0.35);
+}
+.sh-slide--cream .sh-foot-bar,
+.sh-slide--green .sh-foot-bar {
+  background: rgb(74 46 22 / 0.18);
+}
+
+.sh-cap {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+/* 좁은 화면: 창을 무대 폭에 맞추고 카드 셋을 작게, 제목은 읽히는 크기 유지 */
+.sh .ss-stage[data-layout='compact'] {
+  --gutter: 16px;
+}
+.sh .ss-stage[data-layout='compact'] .sh-win {
+  left: 16px;
+  width: 326px;
+}
+.sh .ss-stage[data-layout='compact'] .sh-cards {
+  gap: 8px;
+}
+.sh .ss-stage[data-layout='compact'] .sh-slide {
+  padding: 9px;
+  border-radius: 8px;
+}
+.sh .ss-stage[data-layout='compact'] .sh-title {
+  font-size: 13px;
+}
+
+.sh .ss-stage[data-layout='compact'] .sh-kicker,
+.sh .ss-stage[data-layout='compact'] .sh-page {
+  font-size: 10.5px;
+}
+.sh .ss-stage[data-layout='compact'] .sh-foot-bar {
+  display: none;
+}
+.sh .ss-stage[data-layout='compact'] .sh-foot {
+  justify-content: flex-end;
+}
