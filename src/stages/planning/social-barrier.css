@@ -1,0 +1,241 @@
+/* 소셜 데이터 분석 장면. 모든 규칙은 .ps 아래에만 적용 */
+.ps .ss-stage {
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--ss-well);
+}
+
+/* 위·좌우 여백, 아래로 잘림. 잘리는 곳은 글 목록·키워드·원문 막대뿐 */
+.ps .ps-win {
+  position: absolute;
+  top: 40px;
+  left: 56px;
+  width: 788px;
+  height: 560px;
+  box-shadow: var(--ss-shadow-hero);
+}
+
+/* 질문 칸: 창 막대 안의 검색형 입력란 */
+.ps .ps-q {
+  --ss-control: 28px;
+  flex: 100 1 0;
+  min-width: 0;
+}
+
+.ps .ps-q__icon {
+  flex: none;
+  color: var(--ss-text-faint);
+}
+
+/* 왼쪽: 수집 채널 */
+.ps .ps-side {
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;
+}
+
+.ps .ps-side__head {
+  margin: 12px 8px 10px;
+}
+
+.ps .ps-side__head--next {
+  margin-top: 26px;
+}
+
+.ps .ps-ch__icon {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  color: var(--ss-text-faint);
+  transition: color 0.2s ease;
+}
+
+.ps .ps-ch__label {
+  color: var(--ss-text);
+  transition: color 0.2s ease;
+}
+
+.ps .ps-ch[data-on] .ps-ch__icon {
+  color: var(--ss-text);
+}
+
+.ps .ps-ch[data-on] .ps-ch__label {
+  color: var(--ss-text-strong);
+}
+
+.ps .ps-kw {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 28px;
+  padding: 0 8px;
+}
+
+/* 가운데 글 목록과 오른쪽 결과 */
+.ps .ps-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 248px;
+  height: 100%;
+  background: var(--ss-surface);
+}
+
+.ps .ps-list {
+  min-height: 0;
+  padding: 8px;
+  overflow: hidden;
+}
+
+.ps .ps-tag {
+  flex: none;
+}
+
+.ps .ps-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  padding: 18px 16px 0;
+  border-left: 1px solid var(--ss-line);
+}
+
+/* 두 답이 한 칸을 같이 씀: 앞의 답이 흐려지면서 새 답이 위에서부터 채워짐 */
+.ps .ps-result {
+  display: grid;
+}
+
+.ps .ps-result > * {
+  grid-area: 1 / 1;
+}
+
+.ps .ps-sent {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.ps .ps-sent[data-off] {
+  opacity: 0;
+}
+
+.ps .ps-split {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.ps .ps-split__rest {
+  flex: 1;
+}
+
+.ps .ps-sent__note {
+  margin-top: 12px;
+}
+
+.ps .ps-legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ps .ps-barriers {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.ps .ps-barrier {
+  display: grid;
+  gap: 7px;
+  opacity: 0;
+  transform: translateY(6px);
+  will-change: transform;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ps .ps-barrier[data-on] {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.35s ease 0.08s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.08s;
+}
+
+.ps .ps-barrier__label {
+  display: flex;
+  align-items: center;
+  height: 17px;
+  color: var(--ss-text-strong);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 17px;
+}
+
+/* 막대는 줄이 자리를 잡은 뒤에 자람 */
+.ps .ps-barrier .ss-meter__fill {
+  transition-delay: 0.12s;
+}
+
+/* 이름 없는 넷째 줄은 채움이라 회색 */
+.ps .ps-barrier[data-filler] .ss-meter__fill {
+  background: var(--ss-ink-5);
+}
+
+.ps .ps-quotes {
+  display: grid;
+  gap: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ss-line);
+}
+
+.ps .ps-quote {
+  display: grid;
+  gap: 7px;
+}
+
+/* 좁은 화면: 사이드바 없이 위에서 아래로 읽히는 한 단 구도.
+   질문(창 막대) → 새 채널 두 개 → 들어오는 글 두 줄 → 구매 장벽.
+   창은 위·좌우 16, 아래로 잘림. 보이는 부분이 정사각(326 × 326) */
+.ps .ss-stage[data-layout='compact'] .ps-win {
+  top: 16px;
+  left: 16px;
+  width: 326px;
+  height: 440px;
+}
+
+.ps .ss-stage[data-layout='compact'] .ps-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px 0;
+}
+
+.ps .ss-stage[data-layout='compact'] .ps-chips {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ps .ss-stage[data-layout='compact'] .ps-ch {
+  box-shadow: inset 0 0 0 1px var(--ss-line);
+}
+
+/* 글 띠: 두 줄 높이로 고정 */
+.ps .ss-stage[data-layout='compact'] .ps-list {
+  flex: none;
+  height: 100px;
+  padding: 0;
+}
+
+.ps .ss-stage[data-layout='compact'] .ps-pane {
+  padding: 2px 0 0;
+  border-left: 0;
+}
+
+.ps .ss-stage[data-layout='compact'] .ps-barriers {
+  gap: 11px;
+}
+
+.ps .ss-stage[data-layout='compact'] .ps-barrier {
+  gap: 6px;
+}
