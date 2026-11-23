@@ -58,18 +58,13 @@ const OTHER: { name: string; desc: string; href?: string; link?: string }[] = [
 
 type Media = { when?: string; title: string; where: string; href?: string; img?: string; label?: string; credit?: string }
 
-const TALKS: Media[] = [
+const MEDIA: Media[] = [
   { when: '2026.12', title: 'Activate Your Insights — 데이터로 설계하는 앱 성과 극대화 전략', where: 'TikTok × ThinkingAI 세미나 (예정)', label: 'TikTok × ThinkingAI' },
   { when: '2026.11', title: 'Agent로 비즈니스를 성장시키기 위한 준비물 3가지', where: 'DevFest 인천 2026', label: 'DevFest 인천 2026' },
   { when: '2026.10', title: 'AI 시대, 데과부로 살아남기', where: '수원대학교 데이터과학부 졸업생 특강', img: '/images/media/talk-lecture.jpg' },
-  { when: '2026', title: 'CMTS 2026 발표', where: '커머스 마케팅 컨퍼런스', img: '/images/media/talk-cmts.jpg', credit: '사진 블로터' },
-  { when: '2025.11', title: 'A Paradigm Shift in User Analytics — 유저 분석의 세대 교체', where: 'ThinkingData Summit 2025', img: '/images/media/talk-tds.jpg', credit: '사진 게임포커스' },
-]
-
-const PRESS: Media[] = [
-  { when: '2026.05', title: "AX는 데이터부터…씽킹AI의 '캠페인 자동화' [커머스마케팅 대전]", where: '블로터', href: 'https://www.bloter.net/news/articleView.html?idxno=660823', img: '/images/media/press-bloter.jpg', credit: '사진 블로터' },
-  { when: '2025.11', title: "'ThinkingData Summit 2025' 종료, AI 시대 게임 데이터 분석의 새로운 패러다임 제시", where: '게임포커스', href: 'https://gamefocus.co.kr/detail.php?number=170983', img: '/images/media/press-gamefocus.jpg', credit: '사진 게임포커스' },
-  { title: '데이터 기반 CS로 일본 게임 시장 공략하다… ThinkingData, 일본 게임 세미나 성황리 마쳐', where: '한류신문', href: 'http://m.hallyunews.net/bbs/board.php?bo_table=han_leisure&wr_id=1705&page=70', label: '한류신문' },
+  { when: '2026.05', title: "AX는 데이터부터…씽킹AI의 '캠페인 자동화'", where: 'CMTS 2026 커머스마케팅 대전 발표 · 블로터 기사', href: 'https://www.bloter.net/news/articleView.html?idxno=660823', img: '/images/media/talk-cmts.jpg', credit: '사진 블로터' },
+  { when: '2025.11', title: 'A Paradigm Shift in User Analytics — 유저 분석의 세대 교체', where: 'ThinkingData Summit 2025 발표 · 게임포커스 기사', href: 'https://gamefocus.co.kr/detail.php?number=170983', img: '/images/media/talk-tds.jpg', credit: '사진 게임포커스' },
+  { title: '데이터 기반 CS로 일본 게임 시장 공략하다… ThinkingData, 일본 게임 세미나 성황리 마쳐', where: '한류신문 기사', href: 'http://m.hallyunews.net/bbs/board.php?bo_table=han_leisure&wr_id=1705&page=70', label: '한류신문' },
 ]
 
 const CAREER = [
@@ -120,7 +115,7 @@ function Ext({ href, children }: { href: string; children: React.ReactNode }) {
   )
 }
 
-function MediaList({ items, link }: { items: Media[]; link?: string }) {
+function MediaList({ items }: { items: Media[] }) {
   return (
     <ul className="pf-media">
       {items.map((m) => (
@@ -141,7 +136,7 @@ function MediaList({ items, link }: { items: Media[]; link?: string }) {
               {m.where}
               {m.credit && <span className="pf-media__credit"> · {m.credit}</span>}
             </p>
-            {m.href && link && <Ext href={m.href}>{link}</Ext>}
+            {m.href && <Ext href={m.href}>기사 보기</Ext>}
           </div>
         </li>
       ))}
@@ -367,9 +362,9 @@ export default function App() {
         <section id="talks" className="pf-wrap pf-section">
           <div className="pf-head">
             <p className="pf-eyebrow">발표 · 대회</p>
-            <h2>발표와 강연</h2>
+            <h2>발표·강연과 기사</h2>
           </div>
-          <MediaList items={TALKS} />
+          <MediaList items={MEDIA} />
 
           <div className="pf-others">
             <h3 className="pf-others__title">대회</h3>
@@ -385,11 +380,6 @@ export default function App() {
                 <span className="pf-row__desc" />
               </li>
             </ul>
-          </div>
-
-          <div className="pf-others">
-            <h3 className="pf-others__title pf-others__title--gap">관련 기사</h3>
-            <MediaList items={PRESS} link="기사 보기" />
           </div>
         </section>
 
