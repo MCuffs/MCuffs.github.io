@@ -189,7 +189,7 @@ export default function App() {
               정민수 <span>Minsu Jung</span>
             </h1>
             <p className="pf-hero__lede">기업의 AI·데이터 도입 프로젝트를 과제 정의부터 PoC, 구축, 정착까지 이끕니다.</p>
-            <p className="pf-hero__sub">게임·식품·커머스·콘텐츠 기업의 프로젝트를 리드하고, 현장에서 찾은 요구를 제품 기획으로 옮기며, 고객용 AI 에이전트를 직접 만듭니다. 사이드 프로젝트로 AI 카드뉴스 SaaS를 만들어 운영했고, 지금은 모바일 게임을 만들고 있습니다.</p>
+            <p className="pf-hero__sub">게임·식품·커머스·콘텐츠 기업의 프로젝트를 리드하고, 현장에서 찾은 요구를 제품 기획으로 옮기며, 고객용 AI 에이전트를 직접 만듭니다. 사이드 프로젝트로 AI 카드뉴스 SaaS를 만들어 운영했습니다.</p>
             <div className="pf-links">
               <Ext href={GITHUB}>GitHub</Ext>
               <Ext href={LINKEDIN}>LinkedIn</Ext>
@@ -353,20 +353,6 @@ export default function App() {
             </div>
           </article>
 
-          <article className="pf-feature pf-feature--stage">
-            <a className="pf-feature__demo pf-shot" href="https://mcuffs.github.io/bluemushroom/" target="_blank" rel="noreferrer">
-              <img src="/images/game-family.webp" alt="게임 「아빠 전쟁」의 아빠 가족 캐릭터 그림" decoding="async" />
-            </a>
-            <div className="pf-feature__copy">
-              <p className="pf-meta">개인 프로젝트 · 개발 중</p>
-              <h3>아빠 전쟁 — 모바일 캐주얼 게임</h3>
-              <p>아들이 장난으로 건 「아빠 의리 테스트」에 아빠가 진심으로 반응해 학교로 뛰어가는 세로형 캐주얼 액션 게임입니다. 기획, 밸런스, 에셋 발주, Unity 개발을 직접 하고 있습니다.</p>
-              <p className="pf-tech">Unity · C#</p>
-              <div className="pf-links pf-links--small">
-                <Ext href="https://mcuffs.github.io/bluemushroom/">파랑버섯 스튜디오</Ext>
-              </div>
-            </div>
-          </article>
 
           <div className="pf-others">
             <h3 className="pf-others__title">그 밖의 프로젝트</h3>
