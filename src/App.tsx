@@ -50,10 +50,6 @@ const LOGOS = [
 
 const OTHER: { name: string; desc: string; href?: string; link?: string }[] = [
   { name: 'Engage Guide', desc: '운영 모듈·구성 센터 도입용 학습 자료와 시뮬레이터', href: 'https://mcuffs.github.io/engageguide/', link: '사이트' },
-  { name: '오늘장 마켓', desc: 'CRM 솔루션 검토용 데모 쇼핑몰', href: 'https://mcuffs.github.io/oneuljang-demo/', link: '사이트' },
-  { name: 'GameDex RAG PoC', desc: '사내 문서 벡터 검색과 AI 답변 PoC', href: `${GITHUB}/RAG`, link: 'GitHub' },
-  { name: 'GEO Rank', desc: 'AI 검색 노출 순위를 추적하는 MVP', href: `${GITHUB}/geo`, link: 'GitHub' },
-  { name: 'Streamer Soundboard', desc: 'OBS·TikTok Live 방송용 저지연 사운드보드', href: `${GITHUB}/StreamerSoundboard`, link: 'GitHub' },
   { name: 'TikTok Live Crawler', desc: '방송 중인 스트리머 ID 수집기 (Python·Playwright)', href: `${GITHUB}/tiktok`, link: 'GitHub' },
   { name: 'Retro Tetris', desc: '브라우저 게임 데모', href: 'https://mcuffs.github.io/retro-tetris-demo/', link: '사이트' },
   { name: '릴리스 노트 자동화', desc: '제품 위키의 변경을 매일 4개 언어 릴리스 노트로 정리하는 파이프라인 (릴리스 44건·변경 170건, MCP 서버 포함)' },
