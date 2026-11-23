@@ -916,3 +916,98 @@ figure {
 .pd-demo__replay:hover {
   filter: brightness(0.96);
 }
+
+/* 고객사 로고 띠: 히어로와 「하는 일」 사이에서 가로로 흐른다 */
+.pf-trust {
+  padding-top: 88px;
+}
+.pf-trust__label {
+  margin: 0 0 28px;
+  text-align: center;
+  color: var(--ink-4);
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+.pf-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.pf-marquee__track {
+  display: flex;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: pf-marquee 48s linear infinite;
+}
+.pf-marquee:hover .pf-marquee__track {
+  animation-play-state: paused;
+}
+.pf-marquee__track li {
+  flex: none;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 32px;
+}
+.pf-marquee__track img {
+  display: block;
+  max-height: 32px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.55;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.pf-marquee__track li:hover img {
+  filter: none;
+  opacity: 1;
+}
+@keyframes pf-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.pf-trust + .pf-section {
+  padding-top: 96px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pf-marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .pf-marquee__track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 12px;
+  }
+  .pf-marquee__track li[aria-hidden='true'] {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .pf-trust {
+    padding-top: 64px;
+  }
+  .pf-trust__label {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .pf-marquee__track {
+    animation-duration: 36s;
+  }
+  .pf-marquee__track li {
+    padding: 0 22px;
+    height: 36px;
+  }
+  .pf-marquee__track img {
+    max-height: 26px;
+    max-width: 96px;
+  }
+  .pf-trust + .pf-section {
+    padding-top: 72px;
+  }
+}

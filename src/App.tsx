@@ -202,6 +202,19 @@ export default function App() {
           </div>
         </section>
 
+        <section className="pf-wrap pf-trust" aria-label="프로젝트를 리드한 고객사">
+          <p className="pf-trust__label">AI·데이터 프로젝트를 리드한 고객사</p>
+          <div className="pf-marquee">
+            <ul className="pf-marquee__track">
+              {[...LOGOS, ...LOGOS].map((l, i) => (
+                <li key={`${l.name}-${i}`} aria-hidden={i >= LOGOS.length || undefined}>
+                  <img src={l.src} alt={i >= LOGOS.length ? '' : l.name} style={{ width: l.w }} decoding="async" />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <section id="work" className="pf-wrap pf-section">
           <div className="pf-head">
             <p className="pf-eyebrow">하는 일</p>
@@ -211,13 +224,6 @@ export default function App() {
             <div className="pf-stat">
               <span className="pf-stat__num">40+</span>
               <span className="pf-stat__label">리드한 기업 고객 프로젝트</span>
-              <ul className="pf-logos" aria-label="담당한 고객사">
-                {LOGOS.map((l, i) => (
-                  <li key={l.name} style={{ '--i': i } as React.CSSProperties}>
-                    <img src={l.src} alt={l.name} style={{ width: l.w }} loading="lazy" decoding="async" />
-                  </li>
-                ))}
-              </ul>
             </div>
             <dl className="pf-work__list">
               {WORK.map((w) => (
